@@ -1,0 +1,16 @@
+<h1>App-Component</h1>
+
+<!-- We create 2 children components - Child1Component and Child2Component and apply binding techniques on those components properties-->
+
+
+
+<!-- child1Element is a property of Child1Component defined in child1.component.ts. It cannot be treated as an attribute,
+    Thats why to access this value from AppComponent, we bind child1Element by adding @Input() in front of it. 
+    What it means is -> Parent(AppComponent) can access that child components value as if it were an attribute-->
+<app-child1 *ngIf="[child1Element] "></app-child1>
+
+
+<!-- @Input() lets AppComponent access child's data which resides only to that component, while @Output() allows the child component
+    to send/emit data to AppComponent, which can then be manipulated. On clicking button on child2.component.html, it calls onAddChild2() 
+    child2.component.ts, which emits the data to app.component.ts-->
+<app-child2 (child2OpVal)="getChild2($event)" ></app-child2>
